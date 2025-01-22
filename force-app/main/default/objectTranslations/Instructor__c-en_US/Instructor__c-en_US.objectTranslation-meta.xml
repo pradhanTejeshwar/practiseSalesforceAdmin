@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Instructor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Instructors</value>
+    </caseValues>
+    <layouts>
+        <layout>Instructor Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Rating Value should be between 1 to 5 --></errorMessage>
+        <name>Rating_Value_1_to_5</name>
+    </validationRules>
+</CustomObjectTranslation>

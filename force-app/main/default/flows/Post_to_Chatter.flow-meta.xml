@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Post_to_Opportunity</name>
+        <label>Post to Opportunity</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>chatterPost</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <interviewLabel>Post to Chatter {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Post to Chatter</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Post_to_Opportunity</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>chatterPost</name>
+        <text>@[{!$Record.OwnerId}] Opportunity is Closed Won/Lost.
+Closed Date : {!$Record.CloseDate}
+Amount : {!$Record.Amount}</text>
+    </textTemplates>
+</Flow>

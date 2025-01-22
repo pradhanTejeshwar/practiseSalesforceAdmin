@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Student</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Students</value>
+    </caseValues>
+    <layouts>
+        <layout>Experienced Layout</layout>
+        <sections>
+            <label><!-- Communication Details --></label>
+            <section>Communication Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Professional Information --></label>
+            <section>Professional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Salesforce Skills --></label>
+            <section>Salesforce Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Fresher Layout</layout>
+        <sections>
+            <label><!-- Communication Details --></label>
+            <section>Communication Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Educational Details --></label>
+            <section>Educational Details</section>
+        </sections>
+        <sections>
+            <label><!-- Professional Information --></label>
+            <section>Professional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Salesforce Skills --></label>
+            <section>Salesforce Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Student Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Provides fields for an Experienced Individual to enter the details --></description>
+        <label><!-- Experienced --></label>
+        <name>Experienced</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Provides fields for a Fresher Individual to enter the details --></description>
+        <label><!-- Fresher --></label>
+        <name>Fresher</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Age should not be Zero --></errorMessage>
+        <name>Age_Not_Zero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Entrance Score should not be Blank --></errorMessage>
+        <name>Entrance_Score_Not_Blank</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Date_not_Set</fullName>
+    <active>true</active>
+    <description>Close Date is not set</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Close_Date__c),
+    ISPICKVAL(Status__c, &quot;Closed - Filled&quot;) 
+				    || ISPICKVAL(Status__c, &quot;Closed - Not Approved&quot;) 
+				        || ISPICKVAL(Status__c, &quot;Closed - Canceled&quot;)
+)</errorConditionFormula>
+    <errorMessage>Close Date is not set</errorMessage>
+</ValidationRule>
