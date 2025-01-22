@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>Approval_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>taskCreated__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
