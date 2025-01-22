@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Fees__c</columns>
+    <columns>Highest_Entrance_Score__c</columns>
+    <columns>Lowest_Entrance_Score__c</columns>
+    <columns>Total_Entrance_Score__c</columns>
+    <columns>Total_Students__c</columns>
+    <columns>Average_Entrance_Score__c</columns>
+    <columns>Course_Duration__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

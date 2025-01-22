@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuplicateRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOnInsert>Block</actionOnInsert>
+    <actionOnUpdate>Block</actionOnUpdate>
+    <alertText>Use one of these records?</alertText>
+    <description>Duplicate Rule valid for Email or Phone</description>
+    <duplicateRuleFilter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <duplicateRuleFilterItems>
+            <field>Email__c</field>
+            <operation>notContain</operation>
+            <value>null</value>
+            <sortOrder>1</sortOrder>
+            <table>Candidate__c</table>
+        </duplicateRuleFilterItems>
+        <duplicateRuleFilterItems>
+            <field>Phone__c</field>
+            <operation>notContain</operation>
+            <value>null</value>
+            <sortOrder>2</sortOrder>
+            <table>Candidate__c</table>
+        </duplicateRuleFilterItems>
+    </duplicateRuleFilter>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Candidate__c</matchRuleSObjectType>
+        <matchingRule>EmailOrPhoneMatchingRule</matchingRule>
+        <objectMapping xsi:nil="true"/>
+    </duplicateRuleMatchRules>
+    <isActive>true</isActive>
+    <masterLabel>EmailOrPhoneDuplicateRule</masterLabel>
+    <securityOption>EnforceSharingRules</securityOption>
+    <sortOrder>1</sortOrder>
+</DuplicateRule>
