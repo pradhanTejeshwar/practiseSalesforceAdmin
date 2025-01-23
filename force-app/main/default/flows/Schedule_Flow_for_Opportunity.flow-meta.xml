@@ -1,52 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>createTaskOpportunity</name>
-        <label>Create New Task Action 1</label>
-        <locationX>176</locationX>
-        <locationY>252</locationY>
-        <actionName>FeedItem.NewTaskFromFeedItem</actionName>
-        <actionType>quickAction</actionType>
-        <connector>
-            <targetReference>updateOpportunity</targetReference>
-        </connector>
-        <inputParameters>
-            <name>contextId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>Subject</name>
-            <value>
-                <stringValue>Task Created for Schedule Trigger Flow</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>ActivityDate</name>
-            <value>
-                <elementReference>futureDate</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>WhoId</name>
-            <value>
-                <elementReference>$Record.Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>WhatId</name>
-            <value>
-                <elementReference>$Record.AccountId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>Description</name>
-            <value>
-                <stringValue>New Task Created as part of Schedule Trigger Flow Process</stringValue>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <formulas>
         <name>futureDate</name>
         <dataType>Date</dataType>
@@ -73,6 +26,46 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>createTask</name>
+        <label>createTask</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <connector>
+            <targetReference>updateOpportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>futureDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Follow Up on Opporunity</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordCreates>
     <recordUpdates>
         <name>updateOpportunity</name>
         <label>updateOpportunity</label>
@@ -93,6 +86,6 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
-    <startElementReference>createTaskOpportunity</startElementReference>
+    <startElementReference>createTask</startElementReference>
     <status>Active</status>
 </Flow>
