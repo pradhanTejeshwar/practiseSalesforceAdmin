@@ -131,6 +131,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AccountRecord</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Calculator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -147,6 +151,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateAccountRecord</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Interest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -156,6 +164,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ListOfColours</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RecordDML</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
