@@ -131,7 +131,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>AccountRecord</apexClass>
+        <apexClass>AccountAndRelatedDML</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -151,7 +151,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CreateAccountRecord</apexClass>
+        <apexClass>ConditionalStatementsPractise</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -164,6 +164,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ListOfColours</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PositionAndRelatedDML</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -184,6 +188,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SquareStatic</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>updateTaskCreatedOpportunity</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>

@@ -4,6 +4,7 @@
     <columns>NAME</columns>
     <columns>Days_Open__c</columns>
     <columns>Severity__c</columns>
+    <columns>CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
