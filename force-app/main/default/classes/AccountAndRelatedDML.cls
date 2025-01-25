@@ -275,7 +275,8 @@ public class AccountAndRelatedDML {
         Map<Id,Account> accMap = new Map<Id,Account>(accList);
         
         //Loop to store Account data into key and value in accMap
-        for(Account acc:accList) {
+        for(Account acc : accList) {
+            //Store Account data in accMap
             accMap.put(acc.id, acc);
         }
         
@@ -283,5 +284,126 @@ public class AccountAndRelatedDML {
         System.debug('Account Map : ' + accMap);
         System.debug('Map Keys : ' + accMap.keySet());
         System.debug('Map Values : ' + accMap.values());
+    }
+    public static void loopAccountListAndDisplayInformation() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        
+        //Checking for empty List
+        if(accList.size()>0) {
+            //Looping through accList
+            for(Account acc : accList) {
+                //Display in debug the instance of Account Record
+                System.debug('Account Information : ' + acc);
+            }
+        }
+    }
+    public static void loopAccountListAndCreateSetOfAccountId() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        //Initialise Map accSet and store accList
+        Set<Id> accSet = new Set<Id>();
+        
+        //Checking for empty List
+        if(!accList.isEmpty()) {
+            //Looping through accList
+            for(Account acc : accList) {
+                //Store Ids of Account Records in accSet
+                accSet.add(acc.Id);
+            }
+        }
+        
+        //Displaying Set of Ids from accSet
+        System.debug('Set of Ids : ' + accSet);
+    }
+    public static void loopAccountListAndDisplaySetOfAccountId() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        //Initialise Map accSet and store accList
+        Set<Id> accSet = new Set<Id>();
+        
+        //Checking for empty List
+        if(!accList.isEmpty()) {
+            //Looping through accList
+            for(Account acc : accList) {
+                //Adding Ids of Account Record to accSet
+                accSet.add(acc.Id);
+            }
+        }
+        
+        //Checking for empty List
+        if(accSet.size()>0) {
+            //Looping through Set with Id variable acc
+            for(Id acc : accSet) {
+                //Display in debug the Id of Account Record
+                System.debug('Id : ' + acc);
+            }
+        }
+    }
+    public static void loopAccountListAndCreateMapOfAccountId() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        //Initialise Map accMap and store accList
+        Map<Id,Account> accMap = new Map<Id,Account>();
+        
+        //Checking for empty List
+        if(!accList.isEmpty()) {
+            //Looping through accList
+            for(Account acc : accList) {
+                //Saving the Account Data into accMap
+                accMap.put(acc.Id,acc);
+            }
+        }
+        
+        //Displaying the Map 
+        System.debug('Map of AccountList : ' + accMap);
+    }
+    public static void loopAccountListAndCreateMapOfAccountIdAndIterateKeys() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        //Initialise Map accMap and store accList
+        Map<Id,Account> accMap = new Map<Id,Account>();
+        
+        //Checking for empty List
+        if(!accList.isEmpty()) {
+            //Looping through accList
+            for(Account acc : accList) {
+                //Saving the Account data into accMap
+                accMap.put(acc.Id,acc);
+            }
+        }
+        
+        //Checking for empty List
+        if(accMap.size()>0) {
+            //Looping through Keys of accMap
+            for(Id acc : accMap.keySet()) {
+                //Display in debug the Id of Account Record
+                System.debug('Key : ' + acc);
+            }
+        }
+    }
+    public static void loopAccountListAndCreateMapOfAccountIdAndIterateValues() {
+        //Initialise List accList and store AccountRecords Data
+        List<Account> accList = [SELECT Id, Name, Type, Rating FROM Account LIMIT 3];
+        //Initialise Map accMap and store accList
+        Map<Id,Account> accMap = new Map<Id,Account>();
+        
+        //Checking for empty List
+        if(!accList.isEmpty()) {
+            //Looping through accList
+            for(Account acc:accList) {
+                //Display in debug the Id of Account Record
+                accMap.put(acc.Id,acc);
+            }
+        }
+        
+        //Checking for empty List
+        if(accMap.size()>0) {
+            //Looping through values of accMap
+            for(Account acc:accMap.values()) {
+                //Display in debug the Value of Account Record
+                System.debug('Value : ' + acc);
+            }
+        }
     }
 }

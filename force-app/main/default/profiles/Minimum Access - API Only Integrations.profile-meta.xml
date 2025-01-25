@@ -167,6 +167,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LoopStatementsPractise</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PositionAndRelatedDML</apexClass>
         <enabled>false</enabled>
     </classAccesses>
