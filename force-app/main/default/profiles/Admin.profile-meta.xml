@@ -155,6 +155,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DMLPractise</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DatabaseOperations</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Interest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -184,6 +192,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RectangleStatic</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SOQLPractise</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
