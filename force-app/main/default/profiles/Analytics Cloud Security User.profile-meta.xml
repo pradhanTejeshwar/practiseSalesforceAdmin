@@ -135,6 +135,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Calculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -152,6 +156,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConditionalStatementsPractise</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

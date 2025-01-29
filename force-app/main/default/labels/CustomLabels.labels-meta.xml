@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Active_Account_cannot_be_Deleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Active Account cannot be Deleted</shortDescription>
+        <value>Active Account cannot be Deleted</value>
+    </labels>
+    <labels>
+        <fullName>Only_System_Administrator_can_delete_Account_Records</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Only System Administrator can delete Account Records</shortDescription>
+        <value>Only System Administrator can delete Account Records</value>
+    </labels>
+</CustomLabels>
