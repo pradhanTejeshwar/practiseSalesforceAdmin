@@ -61,6 +61,10 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
         if (Trigger.isAfter) {
             AccountTriggerHandler.updateRelatedContactPhoneWithMap(Trigger.new, Trigger.oldMap);
             AccountTriggerHandler.updateRelatedContactPhoneWithSet(Trigger.new, Trigger.oldMap);
+            if(!preventRecursion.firstCall) {
+                preventRecursion.firstCall = true;
+                AccountTriggerHandler.updateDescriptionNoRecursion(Trigger.new, Trigger.oldMap);
+            }
             System.debug('Notification : Triggers executed after update of the Account record.');
         }
         
