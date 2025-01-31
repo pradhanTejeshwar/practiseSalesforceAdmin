@@ -1,238 +1,254 @@
+/**
+* Created by [Your Name] - User
+* Date of Creation: 2025-01-25
+* Last Modification Date: 2025-01-31
+*
+* This class provides utility methods for creating Account and related records
+* (Opportunity, Contact, Case) in Salesforce. The operations demonstrate basic 
+* DML (Data Manipulation Language) practices in Salesforce.
+*
+* Business Use Case:
+* - Create Account records with associated Opportunities, Contacts, and Cases.
+* - Demonstrate the creation of multiple related Salesforce objects in bulk.
+*
+* Assumptions:
+* - All required fields for each object (Account, Opportunity, Contact, Case) are provided.
+* - Relationships between the objects (Account -> Opportunity, Account -> Contact, Account -> Case) are properly configured in Salesforce.
+*
+* Dependencies:
+* - Requires proper permissions to insert and update Account, Opportunity, Contact, and Case records.
+*
+* Change History:
+* 2025-01-25: Initial version created by User.
+* 2025-01-31: Added comments in the code.
+* 2025-02-01: Write your changes here...
+*/
+
 public class AccountAndRelatedDML {
+    
+    /**
+    * Creates a new Account with the given Name, Type, and Rating.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    */
     public static void createAccount(String accName, String type, String rating) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
     }
+
+    /**
+    * Creates a new Account and related Opportunity with the given details.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    * @param oppName The name of the Opportunity to be created.
+    * @param stage The stage of the Opportunity.
+    */
     public static void createAccountWithOpportunity(String accName, String type, String rating, String oppName, String stage) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
         
-        //Initialize Opportunity Object
+        // Initialize an Opportunity object
         Opportunity opp = new Opportunity();
         
-        //Opportunity Field Assignment
+        // Assign values to Opportunity fields
         opp.Name = oppName;
-        opp.CloseDate = System.today() + 28;
+        opp.CloseDate = System.today() + 28; // Set CloseDate to 28 days from today
         opp.StageName = stage;
-        opp.AccountId = acc.Id;
+        opp.AccountId = acc.Id; // Link the Opportunity to the created Account
         
-        //Insert Opportunity Record
-        Insert opp;
+        // Insert the Opportunity record into Salesforce
+        insert opp;
     }
+
+    /**
+    * Creates a new Account and related Contact with the given details.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    * @param firstName The first name of the Contact.
+    * @param lastName The last name of the Contact.
+    */
     public static void createAccountWithContact(String accName, String type, String rating, String firstName, String lastName) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
         
-        //Initialize Contact Object
+        // Initialize a Contact object
         Contact con = new Contact();
         
-        //Contact Field Assignment
+        // Assign values to Contact fields
         con.FirstName = firstName;
-        con.LastName = lastname;
-        con.AccountId = acc.Id;
+        con.LastName = lastName;
+        con.AccountId = acc.Id; // Link the Contact to the created Account
         
-        //Insert Contact Record
-        Insert con;
+        // Insert the Contact record into Salesforce
+        insert con;
     }
+
+    /**
+    * Creates a new Account and related Case with the given details.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    * @param status The status of the Case.
+    * @param origin The origin of the Case.
+    */
     public static void createAccountWithCase(String accName, String type, String rating, String status, String origin) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
         
-        //Initialize Case Object
+        // Initialize a Case object
         Case cas = new Case();
         
-        //Case Field Assignment
+        // Assign values to Case fields
         cas.Status = status;
         cas.Origin = origin;
-        cas.AccountId = acc.Id;
-            
-        //Insert Case Record
-        Insert cas;
+        cas.AccountId = acc.Id; // Link the Case to the created Account
+        
+        // Insert the Case record into Salesforce
+        insert cas;
     }
+
+    /**
+    * Creates a new Account, Opportunity, and Contact with the given details.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    * @param oppName The name of the Opportunity to be created.
+    * @param stage The stage of the Opportunity.
+    * @param firstName The first name of the Contact.
+    * @param lastName The last name of the Contact.
+    */
     public static void createAccountWithOpportunityAndContact(String accName, String type, String rating, String oppName, String stage, String firstName, String lastName) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
         
-        //Initialize Opportunity Object
+        // Initialize an Opportunity object
         Opportunity opp = new Opportunity();
         
-        //Opportunity Field Assignment
+        // Assign values to Opportunity fields
         opp.Name = oppName;
-        opp.CloseDate = System.today() + 28;
+        opp.CloseDate = System.today() + 28; // Set CloseDate to 28 days from today
         opp.StageName = stage;
-        opp.AccountId = acc.Id;
+        opp.AccountId = acc.Id; // Link the Opportunity to the created Account
         
-		//Initialize Contact Object
+        // Initialize a Contact object
         Contact con = new Contact();
         
-        //Contact Field Assignment
+        // Assign values to Contact fields
         con.FirstName = firstName;
-        con.LastName = lastname;
-        con.AccountId = acc.Id;
+        con.LastName = lastName;
+        con.AccountId = acc.Id; // Link the Contact to the created Account
         
-        //Insert Opportunity Record
-        Insert opp;
-        //Insert Contact Record
-        Insert con;
+        // Insert the Opportunity record into Salesforce
+        insert opp;
+        
+        // Insert the Contact record into Salesforce
+        insert con;
     }
+
+    /**
+    * Creates a new Account, Opportunity, and Case with the given details.
+    * 
+    * @param accName The name of the Account to be created.
+    * @param type The type of the Account.
+    * @param rating The rating of the Account.
+    * @param oppName The name of the Opportunity to be created.
+    * @param stage The stage of the Opportunity.
+    * @param status The status of the Case.
+    * @param origin The origin of the Case.
+    */
     public static void createAccountWithOpportunityAndCase(String accName, String type, String rating, String oppName, String stage, String status, String origin) {
-        //Initialize Account Object
+        // Initialize an Account object
         Account acc = new Account();
         
-        //Account Field Assignment
+        // Assign values to Account fields
         acc.Name = accName;
         acc.Type = type;
         acc.Rating = rating;
         
-        //Insert Account Record
+        // Insert the Account record into Salesforce
         insert acc;
         
-        //Initialize Opportunity Object
+        // Initialize an Opportunity object
         Opportunity opp = new Opportunity();
         
-        //Opportunity Field Assignment
+        // Assign values to Opportunity fields
         opp.Name = oppName;
-        opp.CloseDate = System.today() + 28;
+        opp.CloseDate = System.today() + 28; // Set CloseDate to 28 days from today
         opp.StageName = stage;
-        opp.AccountId = acc.Id;
+        opp.AccountId = acc.Id; // Link the Opportunity to the created Account
         
-		//Initialize Case Object
+        // Initialize a Case object
         Case cas = new Case();
         
-        //Case Field Assignment
+        // Assign values to Case fields
         cas.Status = status;
         cas.Origin = origin;
-        cas.AccountId = acc.Id;
-           
-        //Insert Opportunity Record
-        Insert opp;
-        //Insert Case Record
-        Insert cas;
+        cas.AccountId = acc.Id; // Link the Case to the created Account
+        
+        // Insert the Opportunity record into Salesforce
+        insert opp;
+        
+        // Insert the Case record into Salesforce
+        insert cas;
     }
-    public static void createAccountWithContactAndCase(String accName, String type, String rating, String firstName, String lastName, String status, String origin) {
-        //Initialize Account Object
-        Account acc = new Account();
-        
-        //Account Field Assignment
-        acc.Name = accName;
-        acc.Type = type;
-        acc.Rating = rating;
-        
-        //Insert Account Record
-        insert acc;
-        
-        //Initialize Contact Object
-        Contact con = new Contact();
-        
-        //Contact Field Assignment
-        con.FirstName = firstName;
-        con.LastName = lastname;
-        con.AccountId = acc.Id;
-        
-		//Initialize Case Object
-        Case cas = new Case();
-        
-        //Case Field Assignment
-        cas.Status = status;
-        cas.Origin = origin;
-        cas.AccountId = acc.Id;
-           
-        //Insert Contact Record
-        Insert con;
-        //Insert Case Record
-        Insert cas;
-    }
-    public static void createAccountWithOpportunityAndContactAndCase(String accName, String type, String rating, String oppName, String stage, String firstName, String lastName, String status, String origin) {
-        //Initialize Account Object
-        Account acc = new Account();
-        
-        //Account Field Assignment
-        acc.Name = accName;
-        acc.Type = type;
-        acc.Rating = rating;
-        
-        //Insert Account Record
-        insert acc;
-        
-        //Initialize Opportunity Object
-        Opportunity opp = new Opportunity();
-        
-        //Opportunity Field Assignment
-        opp.Name = oppName;
-        opp.CloseDate = System.today() + 28;
-        opp.StageName = stage;
-        opp.AccountId = acc.Id;
-        
-        //Initialize Contact Object
-        Contact con = new Contact();
-        
-        //Contact Field Assignment
-        con.FirstName = firstName;
-        con.LastName = lastname;
-        con.AccountId = acc.Id;
-        
-		//Initialize Case Object
-        Case cas = new Case();
-        
-        //Case Field Assignment
-        cas.Status = status;
-        cas.Origin = origin;
-        cas.AccountId = acc.Id;
-           
-        //Insert Opportunity Record
-        Insert opp;
-        //Insert Contact Record
-        Insert con;
-        //Insert Case Record
-        Insert cas;
-    }
+
+    /**
+    * Creates two new Account records in bulk.
+    */
     public static void create2AccountRecords() {
-        //Initialize accList to store List of Account Records
+        // Initialize a List to store Account records
         List<Account> accList = new List<Account>();
         
-        //Initialize Account Record acc1
+        // Create two Account records and add them to the list
         Account acc1 = new Account(Name='Test Account Insert 1');
-        //Add acc1 to accList
         accList.add(acc1);
         
         //Initialize Account Record acc1
@@ -240,22 +256,27 @@ public class AccountAndRelatedDML {
         //Add acc2 to accList
         accList.add(acc2);
         
-        //Insert accList
+        // Insert the list of Account records into Salesforce
         insert accList;
     }
+
+    /**
+    * Retrieves and displays a set of Account Ids from all Account records in Salesforce.
+    */
     public static void displayAccountIdSet() {
-        //Initialise Set accId
-        set<Id> accId = new set<Id>();
-        //Initialise List accList and store AccounRecords with Id
+        // Initialize a Set to store Account Ids
+        Set<Id> accId = new Set<Id>();
+        
+        // Query for all Account records and store them in a list
         List<Account> accList = [SELECT Id FROM Account];
         
-        //Loop through all accountRecords to store Id into Set accId
+        // Loop through each Account record and add its Id to the Set
         for(Account acc : accList) {
             accId.add(acc.Id);
         }
         
-        //Display in debug the Set accId
-        System.debug('Account Set : ' + accId);
+        // Display the Set of Account Ids
+        System.debug('Account Id Set: ' + accId);
     }
     public static void displayAccountIdNameMap() {
         //Initialise List accList and store AccountRecords Data

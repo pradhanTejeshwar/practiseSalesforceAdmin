@@ -1,63 +1,111 @@
+/**
+ * Created by Tejeshwar Pradhan
+ * Date of Creation: 2025-01-28
+ * Last Modification Date: 2025-01-28
+ *
+ * This class demonstrates DML (Data Manipulation Language) operations in Apex.
+ * It includes operations for inserting, updating, deleting, and undeleting records.
+ *
+ * Business Use Case:
+ * - Perform common database operations for Account and Contact objects.
+ * - Demonstrate inserting multiple related records (Account and Contact).
+ * - Support bulk operations to insert, update, delete, and undelete records efficiently.
+ *
+ * Assumptions:
+ * - Methods handle standard DML operations for typical Salesforce objects.
+ * - Appropriate access to the Salesforce database is assumed.
+ *
+ * Dependencies:
+ * - Relies on Salesforce objects such as `Account` and `Contact`.
+ * - Utilizes standard DML statements (`insert`, `update`, `delete`, `upsert`, `undelete`).
+ *
+ * Change History:
+ * 2025-01-28: Initial version created by Tejeshwar Pradhan.
+ * 2025-01-31: Added detailed comments to the code
+ * 2025-02-01: Write your changes here...
+ */
+
 public class DMLPractise {
+
+    /**
+     * Inserts a single Account record.
+     * @param name The name to be assigned to the Account record.
+     */
     public static void insertSingleAccount(String name) {
-        //Initialise new Account
+        // Initialize new Account
         Account acc = new Account();
-        //Assigning value to the fields from input
+        // Assigning value to the fields from input
         acc.Name = name;
         
-        //Insertion of Account
+        // Insertion of Account
         insert acc;
     }
+
+    /**
+     * Inserts a single Account record and displays its Account Id.
+     * @param name The name to be assigned to the Account record.
+     */
     public static void insertSingleAccountShowId(String name) {
-        //Initialise new Account
+        // Initialize new Account
         Account acc = new Account();
-        //Assigning value to the fields from input
+        // Assigning value to the fields from input
         acc.Name = name;
         
-        //Insertion of Account
+        // Insertion of Account
         insert acc;
         
-        //Display Account Id
+        // Display Account Id
         System.debug('Account Id : ' + acc.Id);
     }
+
+    /**
+     * Inserts two Account records.
+     * @param name1 The name of the first Account.
+     * @param name2 The name of the second Account.
+     */
     public static void insert2Accounts(String name1, String name2) {
-        //Initialise new Account 1
+        // Initialize new Account 1
         Account acc1 = new Account();
-        //Assigning value to the fields from input 1
+        // Assigning value to the fields from input 1
         acc1.Name = name1;
         
-        //Initialise new Account 2
+        // Initialize new Account 2
         Account acc2 = new Account();
-        //Assigning value to the fields from input 2
+        // Assigning value to the fields from input 2
         acc2.Name = name2;
         
-        //Insertion of Accounts
+        // Insertion of Accounts
         insert acc1;
         insert acc2;
     }
+
+    /**
+     * Inserts two Account records and their related Contact records.
+     * @param name1 The name of the first Account.
+     * @param name2 The name of the second Account.
+     * @param lastName The last name for the Contact records.
+     */
     public static void insert2AccountWithRelatedContact(String name1, String name2, String lastName) {
-        //Initialise new List of Accounts
+        // Initialize new List of Accounts
         List<Account> accList = new List<Account>();
-        //Initialise new List of Contacts
+        // Initialize new List of Contacts
         List<Contact> conList = new List<Contact>();
         
-        //Initialise new Account 1
+        // Initialize new Account 1
         Account acc1 = new Account();
-        //Assigning value to the fields from input 1
         acc1.Name = name1;
-        //Adding record to the Account List
         accList.add(acc1);
         
-        //Initialise new Account 2
+        // Initialize new Account 2
         Account acc2 = new Account();
         //Assigning value to the fields from input 2
         acc2.Name = name2;
         accList.add(acc2);
         
-        //Insertion of Account
+        // Insertion of Accounts
         upsert accList;
         
-        //Initialise new Contact 1
+        // Initialize new Contact 1
         Contact con1 = new Contact();
         //Assigning value to the fields from input 1
         con1.LastName = lastName;
@@ -66,7 +114,7 @@ public class DMLPractise {
         //Adding record to the Contact List
         conList.add(con1);
         
-        //Initialise new Contact 2
+        // Initialize new Contact 2
         Contact con2 = new Contact();
         //Assigning value to the fields from input 2
         con2.LastName = lastName;
@@ -75,13 +123,20 @@ public class DMLPractise {
         //Adding record to the Contact List
         conList.add(con2);
         
-        //Insertion of Account's related Contact
+        // Insertion of Contacts related to Accounts
         upsert conList;
     }
+
+    /**
+     * Inserts n Account records and their related Contact records in bulk.
+     * @param n The number of records to insert.
+     * @param name The name to assign to the Account records.
+     * @param lastName The last name to assign to the Contact records.
+     */
     public static void insertAccountWithRelatedContactBulk(Integer n, String name, String lastName) {
-        //Initialise new List of Accounts
+        // Initialize new List of Accounts
         List<Account> accList = new List<Account>();
-        //Initialise new List of Contacts
+        // Initialize new List of Contacts
         List<Contact> conList = new List<Contact>();
         
         //Loop to create total number of records
@@ -96,7 +151,7 @@ public class DMLPractise {
             accList.add(acc);
         }
         
-        //Insertion of Account
+        // Insertion of Accounts
         upsert accList;
         
         for(Integer i=0; i<n; i++) {
@@ -111,73 +166,93 @@ public class DMLPractise {
             conList.add(con);
         }
         
-        //Insertion of Account's related Contact
+        // Insertion of Contacts related to Accounts
         upsert conList;
     }
+
+    /**
+     * Updates Contact records where the LastName contains the specified value.
+     * @param lastName The last name to search for and update.
+     */
     public static void updateContactRecords(String lastName) {
-        //Initialise new Contact
-        List<Contact> conList = [SELECT lastName FROM Contact WHERE lastName LIKE : ('%' + lastName + '%')];
+        // Query Contact records with LastName like the specified value
+        List<Contact> conList = [SELECT LastName FROM Contact WHERE LastName LIKE : ('%' + lastName + '%')];
         
         if(!conList.isEmpty()) {
             for(Contact con : conList) {
-                //Assigning value to the fields from input
-                con.lastName = 'Apex Test ' + lastName;
+                // Assigning new value to LastName
+                con.LastName = 'Apex Test ' + lastName;
             }
-            //Updating List of Contacts
+            // Updating List of Contacts
             update conList;
         }
         
-        //Count of Records updated
+        // Count of Records updated
         System.debug('Contacts Updated : ' + conList.size());
         
-        //Display changed List of Contacts
+        // Display changed List of Contacts
         for(Contact con : conList) {
-            System.debug('Contacts lastName : ' + con.LastName);            
+            System.debug('Contact LastName : ' + con.LastName);            
         }
     }
+
+    /**
+     * Upserts Contact records where the LastName contains the specified value.
+     * @param lastName The last name to search for and upsert.
+     */
     public static void upsertContactRecords(String lastName) {
-        //Initialise new Contact
-        List<Contact> conList = [SELECT lastName FROM Contact WHERE lastName LIKE : ('%' + lastName + '%')];
+        // Query Contact records with LastName like the specified value
+        List<Contact> conList = [SELECT LastName FROM Contact WHERE LastName LIKE : ('%' + lastName + '%')];
         
         if(!conList.isEmpty()) {
             for(Contact con : conList) {
-                //Assigning value to the fields from input
-                con.lastName =  lastName + ' Apex Test';
+                // Assigning new value to LastName
+                con.LastName = lastName + ' Apex Test';
             }
-            //Updating List of Contacts
+            // Upserting List of Contacts
             upsert conList;
         }
         
-        //Count of Records updated
-        System.debug('Contacts Updated : ' + conList.size());
+        // Count of Records upserted
+        System.debug('Contacts Upserted : ' + conList.size());
         
-        //Display changed List of Contacts
+        // Display changed List of Contacts
         for(Contact con : conList) {
-            System.debug('Contacts lastName : ' + con.LastName);            
+            System.debug('Contact LastName : ' + con.LastName);            
         }
     }
+
+    /**
+     * Deletes Contact records where the LastName contains the specified value.
+     * @param lastName The last name to search for and delete.
+     */
     public static void deleteContactRecords(String lastName) {
-        //Initialise new Contact
-        List<Contact> conList = [SELECT lastName FROM Contact WHERE lastName LIKE : ('%' + lastName + '%')];
+        // Query Contact records with LastName like the specified value
+        List<Contact> conList = [SELECT LastName FROM Contact WHERE LastName LIKE : ('%' + lastName + '%')];
         
         if(!conList.isEmpty()) {
-            //Deleting List of Contacts
+            // Deleting List of Contacts
             delete conList;
         }
         
-        //Count of Records updated
+        // Count of Records deleted
         System.debug('Contacts Deleted : ' + conList.size());
     }
+
+    /**
+     * Undeletes Contact records where the LastName contains the specified value.
+     * @param lastName The last name to search for and undelete.
+     */
     public static void undeleteContactRecords(String lastName) {
-        //Initialise new Contact
-        List<Contact> conList = [SELECT lastName FROM Contact WHERE lastName LIKE : ('%' + lastName + '%') ALL ROWS];
+        // Query Contact records with LastName like the specified value, including deleted ones
+        List<Contact> conList = [SELECT LastName FROM Contact WHERE LastName LIKE : ('%' + lastName + '%') ALL ROWS];
         
         if(!conList.isEmpty()) {
-            //Deleting List of Contacts
+            // Undeleting List of Contacts
             undelete conList;
         }
         
-        //Count of Records updated
-        System.debug('Contacts Deleted : ' + conList.size());
+        // Count of Records undeleted
+        System.debug('Contacts Undeleted : ' + conList.size());
     }
 }
