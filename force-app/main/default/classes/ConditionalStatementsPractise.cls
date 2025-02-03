@@ -97,7 +97,6 @@ public class ConditionalStatementsPractise {
             System.debug('Positive : '+ x);
     }
 
-        // If the number is negative, log that it's negative
     /**
      * Checks if a number is negative, zero, or positive using nested if-else conditions.
      * Logs the respective message based on the number's value.

@@ -131,6 +131,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AccountAndRelatedContactWithWrapperClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountAndRelatedDML</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -183,6 +187,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ListOfColoursTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>LoopStatementsPractise</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -216,6 +224,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SquareStatic</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SquareStaticTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
