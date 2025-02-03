@@ -153,7 +153,7 @@ public class DMLPractise {
         
         // Insertion of Accounts
         upsert accList;
-        
+        // Loop to create related Contact records
         for(Integer i=0; i<n; i++) {
             //Initialise new Contact 1
             Contact con = new Contact();

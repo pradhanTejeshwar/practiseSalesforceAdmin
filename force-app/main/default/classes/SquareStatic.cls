@@ -21,7 +21,8 @@
 *
 * Change History:
 * 2024-12-05: Initial version created by Tejeshwar Pradhan.
-* 2024-01-31: Added comments to the code
+* 2025-01-31: Added comments to the code
+* 2025-02-02: Changed the class methods to send values instead of printin in system debug
 * This class provides two static methods: one for calculating the area and another for 
 * calculating the perimeter of a square, both of which output the results to the debug log.
 */
@@ -34,10 +35,10 @@ public class SquareStatic {
      * The area of a square is given by the formula: side * side.
      * 
      * @param s The side length of the square
+     * @return The area of the square
      */
-    public static void area(Integer s) {
-        // Calculate the area of the square and output the result to the debug log
-        System.debug('Area : ' + s * s);
+    public static Integer area(Integer s) {
+        return s * s;
     }
 
     /**
@@ -46,10 +47,10 @@ public class SquareStatic {
      * The perimeter of a square is given by the formula: 4 * side.
      * 
      * @param s The side length of the square
+     * @return The perimeter of the square
      */
-    public static void perimeter(Integer s) {
-        // Calculate the perimeter of the square and output the result to the debug log
-        System.debug('Perimeter : ' + 4 * s);
+    public static Integer perimeter(Integer s) {
+        return 4 * s;
     }
 
 }
