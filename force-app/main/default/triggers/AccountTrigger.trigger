@@ -26,7 +26,7 @@
 * 2025-01-31: Added comments to the code
 * 2025-02-01: Write your changes here...
 */
-trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete) {
+trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete) {    
     
     // Handle Account Insert Operations
     if (Trigger.isInsert) {
