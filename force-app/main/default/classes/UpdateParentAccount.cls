@@ -18,3 +18,11 @@ public class UpdateParentAccount implements Queueable {
         update accList;
     }
 }
+
+//Execute in Anonymous Window
+/*
+List<Account> accList = [SELECT Id FROM Account WHERE Name LIKE '%Test%'];
+Id parentId = [SELECT Id FROM Account WHERE Name = 'Demo Account'][0].Id;
+UpdateParentAccount updateJob = new UpdateParentAccount(accList, parentId);
+Id jobId = System.enqueueJob(updateJob);
+*/

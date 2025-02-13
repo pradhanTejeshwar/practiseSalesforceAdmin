@@ -19,3 +19,13 @@ public class FutureAccountsContact {
         }
     }
 }
+
+//Execute in Anonymous Window
+/*
+List<Account> accList = [SELECT Id FROM Account Limit 10];
+List<Id> accIds = new List<Id>();
+for(Account acc : accList) {
+    accIds.add(acc.Id);
+}
+FutureAccountsContact.countContacts(accIds);
+*/
