@@ -1,0 +1,59 @@
+<apex:page showHeader="false" standardController="Account">
+    
+    <apex:form >
+        
+        <h2 align="center">
+            Account Information
+        </h2>
+        
+        <br/>
+        
+        <table>
+            <tr>
+                <td align="center" colspan="2">{! $User.firstName + ' ' + $User.lastName}</td>
+            </tr>
+            <tr>
+                
+                <td>Name : </td>
+                <td><apex:inputField value="{!Account.Name}"/></td>
+                
+            </tr>
+            
+            <tr>
+                
+                <td><apex:commandButton value="Save" action="{!save}"/></td>
+                <td><apex:commandButton value="Cancel" action="{!cancel}"/></td>
+                
+            </tr>
+            
+        </table>
+        
+    </apex:form>
+    <apex:form >
+        <apex:pageBlock title="Account Information">
+            <apex:pageBlockSection columns="1">
+                <apex:inputText value="{!Account.Name}" label="Name"/>
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                <apex:commandButton value="Quick Save" action="{!quicksave}"/>
+                <apex:commandButton value="Edit" action="{!edit}"/>
+                <apex:commandButton value="Delete" action="{!delete}"/>
+                <apex:commandButton value="View" action="{!view}"/>
+                <apex:commandButton value="List" action="{!list}"/>
+                <!--
+                <apex:commandButton value="First" action="{!first}"/>
+                <apex:commandButton value="Previous" action="{!previous}"/>
+                <apex:commandButton value="Next" action="{!next}"/>
+                <apex:commandButton value="Last" action="{!last}"/>
+                -->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

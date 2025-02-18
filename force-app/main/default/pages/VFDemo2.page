@@ -1,0 +1,33 @@
+<apex:page controller="LoginAccountController">
+    <apex:pageBlock title="First Page Block">
+        <apex:pageBlockSection title="First Page Block Section">
+            Text present in First Page Block
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pageBlock title="Second Page Block">
+        <apex:pageBlockSection title="Second Page Block Section">
+            Text present in Second Page Block
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <apex:form >
+        <apex:pageBlock title="User Login">
+            <apex:pageBlockSection columns="1">
+                <apex:inputText value="{!username}" label="Username"/>
+                <apex:inputSecret value="{!password}" label="Password"/>
+                <apex:commandButton value="Login" action="{!login}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:pageBlock title="Associated Accounts" rendered="{!isLoggedIn}">
+        <apex:outputPanel layout="block">
+            <apex:outputText value="Total Records: {!totalRecords}" style="font-weight:bold;"/>
+        </apex:outputPanel>
+        
+        <apex:pageBlockTable value="{!accounts}" var="acc">
+            <apex:column value="{!acc.Name}" headerValue="Account Name"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+</apex:page>
