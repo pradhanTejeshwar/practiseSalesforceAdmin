@@ -1,2 +1,45 @@
-<apex:page >
+<apex:page controller="ContactController">
+    
+    <apex:form >
+        
+        <apex:pageBlock title="Contact List" id="conList">
+            
+            <apex:pageBlockTable value="{!contacts}" var="con">
+                <apex:column value="{!con.FirstName}">
+                    
+                    <apex:facet name="header">
+                        
+                        <apex:commandLink action="{!sortByFirstName}" rerender="conList">
+                            First Name
+                        </apex:commandLink>
+                    </apex:facet>
+                    
+                </apex:column>
+                <apex:column value="{!con.LastName}">
+                    
+                    <apex:facet name="header">
+                        
+                        <apex:commandLink action="{!sortByLastName}" rerender="conList">
+                            Last Name
+                        </apex:commandLink>
+                    </apex:facet>
+                    
+                </apex:column>
+                <apex:column value="{!con.Email}">
+                    
+                    <apex:facet name="header">
+                        
+                        <apex:commandLink action="{!sortByEmail}" rerender="conList">
+                            Email
+                        </apex:commandLink>
+                    </apex:facet>
+                    
+                </apex:column>
+                
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+    
 </apex:page>
