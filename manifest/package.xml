@@ -520,5 +520,13 @@
         <members>*</members>
         <name>Settings</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>OmniScript</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>OmniUiCard</name>
+    </types>
     <version>44.0</version>
 </Package>
